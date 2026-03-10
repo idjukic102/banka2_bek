@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "employees")
@@ -39,11 +42,14 @@ public class Employee {
     @Column(nullable = false)
     private String address;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String username;
 
     @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private String saltPassword;
 
     @Column(nullable = false)
     private String position;
@@ -54,9 +60,9 @@ public class Employee {
     @Column(nullable = false)
     private Boolean active;
 
-    @Column
-    private String activationToken;
-
-    @Column
-    private java.time.LocalDateTime activationTokenExpiry;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "employee_permissions", joinColumns = @JoinColumn(name = "employee_id"))
+    @Column(name = "permission")
+    @Builder.Default
+    private Set<String> permissions = new HashSet<>();
 }

@@ -7,17 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import rs.raf.banka2_bek.employee.model.Employee;
 
-import java.util.Optional;
-
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     boolean existsByEmail(String email);
 
     boolean existsByUsername(String username);
 
-    Optional<Employee> findByActivationToken(String token);
-
-    // Task 9 - filteri po emailu, imenu, prezimenu i poziciji
     @Query("SELECT e FROM Employee e WHERE " +
             "(:email IS NULL OR LOWER(e.email) LIKE LOWER(CONCAT('%', :email, '%'))) AND " +
             "(:firstName IS NULL OR LOWER(e.firstName) LIKE LOWER(CONCAT('%', :firstName, '%'))) AND " +

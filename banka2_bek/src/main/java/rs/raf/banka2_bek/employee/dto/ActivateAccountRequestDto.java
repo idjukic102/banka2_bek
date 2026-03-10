@@ -1,12 +1,11 @@
 package rs.raf.banka2_bek.employee.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-// DTO za aktivaciju naloga (Task 8)
-// Zaposleni unosi lozinku pri aktivaciji
 @Data
 public class ActivateAccountRequestDto {
+
+    @NotBlank
     private String token;
-    private String password;
-    private String confirmPassword;
 }

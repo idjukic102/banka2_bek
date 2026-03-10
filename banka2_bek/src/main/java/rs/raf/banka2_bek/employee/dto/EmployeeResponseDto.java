@@ -4,8 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.Set;
 
-// Response DTO - bez passworda, tokena i sl. (Task 9)
 @Data
 @Builder
 public class EmployeeResponseDto {
@@ -21,4 +21,6 @@ public class EmployeeResponseDto {
     private String position;
     private String department;
     private Boolean active;
+    private Set<String> permissions;
+  
 }

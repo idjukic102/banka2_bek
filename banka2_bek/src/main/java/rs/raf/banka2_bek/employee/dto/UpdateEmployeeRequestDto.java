@@ -3,8 +3,8 @@ package rs.raf.banka2_bek.employee.dto;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.Set;
 
-// DTO za update zaposlenog (Task 10)
 @Data
 public class UpdateEmployeeRequestDto {
     private String firstName;
@@ -15,5 +15,6 @@ public class UpdateEmployeeRequestDto {
     private String address;
     private String position;
     private String department;
-    // email i username se ne menjaju
+    private Boolean active;
+    private Set<String> permissions;
 }
