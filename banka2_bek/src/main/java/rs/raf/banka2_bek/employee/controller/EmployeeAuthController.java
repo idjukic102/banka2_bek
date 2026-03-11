@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import rs.raf.banka2_bek.employee.dto.ActivateAccountRequestDto;
-import rs.raf.banka2_bek.employee.service.AuthService;
+import rs.raf.banka2_bek.employee.service.EmployeeAuthService;
 
 import java.util.Map;
 
@@ -22,7 +22,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class EmployeeAuthController {
 
-    private final AuthService authService;
+    private final EmployeeAuthService authService;
 
     @Operation(summary = "Activate account", description = "Activates an employee account using the token sent by email. Token is single-use and time-limited (24h).")
     @ApiResponses({
