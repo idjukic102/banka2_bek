@@ -46,6 +46,11 @@ VALUES
   ('Nemanja', 'Savić', 'nemanja.savic@gmail.com',
    '$2b$10$FUjcSzK7CZKeX53YVU4JjeOIXLt5axbipO85OlQqw5Dopg47zfgRG',
    'nemanja.savic', '+381 62 777 8899', 'Terazije 5, Beograd', 0, 'CLIENT')
+
+  -- FUND korisnici
+    ('Koordinacioni Fond', 'Beograda', 'koordinacioni.fond@banka.rs',
+    '$2b$10$2o//nneiTVurujS8ou5Snu3qNbF3Q20CbPnLc9ag2q0YIO1R3SyZG',
+    'koordinacioni.fond', '+381 11 123 4567', 'Bulevar Mihaila Pupina 10, Beograd', 1, 'FUND'),
 ON DUPLICATE KEY UPDATE email = email;
 
 
